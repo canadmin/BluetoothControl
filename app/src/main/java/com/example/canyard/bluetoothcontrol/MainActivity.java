@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             String info=((TextView) view).getText().toString();
             String address=info.substring(info.length()-17);
 
-            Intent commintent=new Intent(MainActivity.this,Communication.class);
+            Intent commintent=new Intent(MainActivity.this,Kontrol.class);
             commintent.putExtra(EXTRA_ADRESS,address);
             startActivity(commintent);
         }
