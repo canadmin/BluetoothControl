@@ -6,12 +6,15 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.media.Image;
+import android.opengl.Matrix;
 import android.os.AsyncTask;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,9 +30,10 @@ public class Kontrol extends AppCompatActivity {
     BluetoothAdapter myBluetooth=null;
     BluetoothSocket btSocket=null;
     TextView text;
+    ImageView imageView;
     BluetoothDevice remoteDevice;
     BluetoothServerSocket  mmServer;
-    Button ileri,geri,sag,sol,dur,sesliKomut;
+    Button ileri,geri,sag,sol,dur,sesliKomut,deneme;
     private boolean isBtConnected=false;
     static final UUID myUUID=UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     @Override
@@ -46,13 +50,19 @@ public class Kontrol extends AppCompatActivity {
         sol=findViewById(R.id.sol);
         dur=findViewById(R.id.dur);
         sesliKomut=findViewById(R.id.sesliKomut);
-        text=findViewById(R.id.textview);
+        text=findViewById(R.id.textView);
+       // ;
+
+        imageView=findViewById(R.id.imageView);
+
 
 
 
         ileri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imageView.setRotation((float)90.0);
+
                 if(btSocket!=null){
                     try{
                         btSocket.getOutputStream().write("f".getBytes());
@@ -61,6 +71,7 @@ public class Kontrol extends AppCompatActivity {
 
                     }
                 }
+
             }
         });
 
@@ -68,6 +79,8 @@ public class Kontrol extends AppCompatActivity {
         geri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imageView.setRotation((float)270.0);
+
                 if(btSocket!=null){
                     try {
                         btSocket.getOutputStream().write("b".getBytes());
@@ -81,6 +94,8 @@ public class Kontrol extends AppCompatActivity {
         sag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imageView.setRotation((float)180.0);
+
                 if(btSocket!=null){
                     try {
                         btSocket.getOutputStream().write("r".getBytes());
@@ -94,6 +109,8 @@ public class Kontrol extends AppCompatActivity {
         sol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imageView.setRotation((float)0.0);
+
                 if(btSocket!=null){
                     try {
                         btSocket.getOutputStream().write("l".getBytes());
@@ -157,7 +174,7 @@ public class Kontrol extends AppCompatActivity {
                     text.setText(result.get(0));
 
 
-                //    Toast.makeText(this,komut, Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(this,komut, Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -167,6 +184,8 @@ public class Kontrol extends AppCompatActivity {
         String komut=text.getText().toString();
 
         if(komut.equals("İleri")){
+            imageView.setRotation((float)90.0);
+
             if (btSocket != null) {
                 try {
                     btSocket.getOutputStream().write("f".getBytes());
@@ -176,6 +195,8 @@ public class Kontrol extends AppCompatActivity {
             }
         }
         if(komut.equalsIgnoreCase("geri")){
+            imageView.setRotation((float)270.0);
+
             if (btSocket != null) {
                 try {
                     btSocket.getOutputStream().write("b".getBytes());
@@ -184,7 +205,9 @@ public class Kontrol extends AppCompatActivity {
                 }
             }
         }
-        if(komut.equalsIgnoreCase("Sağ")){
+        if(komut.equalsIgnoreCase("Sağ yap")){
+            imageView.setRotation((float)180.0);
+
             if (btSocket != null) {
                 try {
                     btSocket.getOutputStream().write("r".getBytes());
@@ -193,7 +216,9 @@ public class Kontrol extends AppCompatActivity {
                 }
             }
         }
-        if(komut.equalsIgnoreCase("Sol")){
+        if(komut.equalsIgnoreCase("Sol yap")){
+            imageView.setRotation((float)0.0);
+
             if (btSocket != null) {
                 try {
                     btSocket.getOutputStream().write("l".getBytes());

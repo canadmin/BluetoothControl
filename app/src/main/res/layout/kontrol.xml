@@ -1,114 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Kontrol"
-    android:background="#689782"
-    android:orientation="vertical">
+    android:background="#212121"
+    android:orientation="vertical"
+
+    tools:context=".Kontrol">
 
     <LinearLayout
-        android:layout_marginTop="75dp"
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        >
+
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="left"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dur"
+        app:layout_constraintVertical_bias="1.0">
+
         <Button
             android:id="@+id/ileri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ileri2"
-            />
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/yonler"
+            android:rotation="90" />
+
+
+        <Button
+            android:id="@+id/geri"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/yonler"
+            android:rotation="270" />
 
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/sesliKomut"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/micro"
+        app:layout_constraintEnd_toStartOf="@+id/dur"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/dur"
+        android:layout_width="79dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:gravity="center">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <Button
             android:id="@+id/sol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/sol"
-            />
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/yonler" />
 
 
         <Button
             android:id="@+id/sag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/sag"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/yonler"
 
-             />
+            android:rotation="180" />
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="212dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/sesliKomut"
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.348"
+        app:srcCompat="@drawable/araba" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        >
-
-        <Button
-            android:id="@+id/geri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:background="@drawable/geri"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-
-        >
-
-        <Button
-            android:id="@+id/dur"
-            android:layout_width="wrap_content"
-            android:layout_height="85dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_cancel_black_24dp"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-
-        >
-
-        <Button
-            android:id="@+id/sesliKomut"
-            android:layout_width="wrap_content"
-            android:layout_height="85dp"
-            android:background="@drawable/ic_keyboard_voice_black_24dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-
-        >
-
-        <TextView
-            android:id="@+id/textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="deneme"
-            />
-
-    </LinearLayout>
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textColor="#75d4e1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
