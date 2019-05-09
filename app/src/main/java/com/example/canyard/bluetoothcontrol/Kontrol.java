@@ -33,7 +33,7 @@ public class Kontrol extends AppCompatActivity {
     ImageView imageView;
     BluetoothDevice remoteDevice;
     BluetoothServerSocket  mmServer;
-    Button ileri,geri,sag,sol,dur,sesliKomut,deneme;
+    Button ileri,geri,sag,sol,dur,sesliKomut,otonom;
     private boolean isBtConnected=false;
     static final UUID myUUID=UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     @Override
@@ -51,13 +51,26 @@ public class Kontrol extends AppCompatActivity {
         dur=findViewById(R.id.dur);
         sesliKomut=findViewById(R.id.sesliKomut);
         text=findViewById(R.id.textView);
+        otonom=findViewById(R.id.otonom);
        // ;
 
         imageView=findViewById(R.id.imageView);
 
 
 
+        otonom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(btSocket!=null){
+                    try{
+                        btSocket.getOutputStream().write("a".getBytes());
+                    }catch (IOException ex){
 
+
+                    }
+                }
+            }
+        });
         ileri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
